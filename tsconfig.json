@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./tsconfig.node.tsbuildinfo",
+    "outDir": "./dist",
+    "target": "ES2020",
+    "module": "CommonJS"
+  }
+}
