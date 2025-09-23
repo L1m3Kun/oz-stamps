@@ -1,10 +1,11 @@
+import { ChangeEvent } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
 interface InputProps {
   label: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   type?: string;
   error?: string;

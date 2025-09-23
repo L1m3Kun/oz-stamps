@@ -41,6 +41,7 @@ export default defineConfig({
             "cloneElement",
             "isValidElement",
             "PropsWithChildren",
+            "ChangeEvent",
           ],
         },
         {
