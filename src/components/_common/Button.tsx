@@ -1,23 +1,29 @@
 import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
+import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends PropsWithChildren {
+  mode?: "link" | "btn";
   onClick?: () => void;
   variant?: "primary" | "secondary" | "magic";
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   className?: string;
+  to?: string;
 }
+const MotionLink = motion.create(Link);
 
-export default function Button({
+export const Button = ({
+  mode = "btn",
   children,
   onClick,
   variant = "primary",
   size = "md",
   disabled = false,
+  to = "/",
   className = "",
-}: ButtonProps) {
+}: ButtonProps) => {
   const baseClasses =
     "rounded-full font-medium transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center justify-center";
 
@@ -34,21 +40,40 @@ export default function Button({
     lg: "px-8 py-4 text-lg",
   };
 
-  return (
-    <motion.button
-      whileHover={{ scale: disabled ? 1 : 1.05 }}
-      whileTap={{ scale: disabled ? 1 : 0.95 }}
-      onClick={onClick}
-      disabled={disabled}
-      className={twMerge(
-        baseClasses,
-        variantClasses[variant],
-        sizeClasses[size],
-        disabled ? "opacity-50 cursor-not-allowed" : "",
-        className
-      )}
-    >
-      {children}
-    </motion.button>
-  );
-}
+  switch (mode) {
+    case "link":
+      return (
+        <MotionLink
+          to={to}
+          whileHover={{ scale: disabled ? 1 : 1.05 }}
+          whileTap={{ scale: disabled ? 1 : 0.95 }}
+          className={twMerge(
+            baseClasses,
+            variantClasses[variant],
+            sizeClasses[size],
+            className
+          )}
+        >
+          {children}
+        </MotionLink>
+      );
+    default:
+      return (
+        <motion.button
+          whileHover={{ scale: disabled ? 1 : 1.05 }}
+          whileTap={{ scale: disabled ? 1 : 0.95 }}
+          onClick={onClick}
+          disabled={disabled}
+          className={twMerge(
+            baseClasses,
+            variantClasses[variant],
+            sizeClasses[size],
+            disabled ? "opacity-50 cursor-not-allowed" : "",
+            className
+          )}
+        >
+          {children}
+        </motion.button>
+      );
+  }
+};
