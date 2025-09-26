@@ -1,0 +1,33 @@
+{
+  "globals": {
+    "Trans": true,
+    "cloneElement": true,
+    "createContext": true,
+    "createElement": true,
+    "forwardRef": true,
+    "isValidElement": true,
+    "lazy": true,
+    "memo": true,
+    "startTransition": true,
+    "useCallback": true,
+    "useContext": true,
+    "useDebugValue": true,
+    "useDeferredValue": true,
+    "useEffect": true,
+    "useId": true,
+    "useImperativeHandle": true,
+    "useInsertionEffect": true,
+    "useLayoutEffect": true,
+    "useLocation": true,
+    "useMemo": true,
+    "useNavigate": true,
+    "useParams": true,
+    "useReducer": true,
+    "useRef": true,
+    "useSearchParams": true,
+    "useState": true,
+    "useSyncExternalStore": true,
+    "useTransition": true,
+    "useTranslation": true
+  }
+}
