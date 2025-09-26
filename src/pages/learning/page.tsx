@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/_common/Button";
+import { CustomButton } from "@/components/_common";
 
 export default function Learning() {
-  const navigate = useNavigate();
   const [showPreview, setShowPreview] = useState(false);
 
   // 샘플 데이터 (실제 연동 시 대체될 예정)
@@ -65,14 +63,14 @@ export default function Learning() {
             개인별 맞춤 분석과 성장 추이를 한눈에 확인하세요.
           </p>
 
-          <Button
+          <CustomButton
             variant="magic"
             size="lg"
             onClick={() => setShowPreview(!showPreview)}
             className="mb-4"
           >
             📋 학습도 PDF 미리보기 (베타)
-          </Button>
+          </CustomButton>
         </motion.div>
 
         {/* 미리보기 섹션 */}
@@ -210,21 +208,23 @@ export default function Learning() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="space-y-4"
         >
-          <Button
+          <CustomButton
+            mode="link"
+            to="/result"
             variant="secondary"
-            onClick={() => navigate("/result")}
             className="w-full"
           >
             마법구슬 현황으로
-          </Button>
+          </CustomButton>
 
-          <Button
+          <CustomButton
+            mode="link"
+            to="/"
             variant="secondary"
-            onClick={() => navigate("/")}
             className="w-full"
           >
             처음으로
-          </Button>
+          </CustomButton>
         </motion.div>
       </div>
     </div>
