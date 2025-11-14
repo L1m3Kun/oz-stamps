@@ -80,9 +80,12 @@ export const useIdentifySubmit = () => {
       const customError = e as CustomErrorType;
       switch (customError.status) {
         case 421:
-          toastHandler.error("마법에 실패했어요. 정보를 다시 입력해주세요.", {
-            className: "bg-red-300 text-primary",
-          });
+          toastHandler.error(
+            "마법사를 찾을 수 없어요. 마법사 정보를 확인해주세요.",
+            {
+              className: "bg-red-300 text-primary",
+            }
+          );
           break;
         default:
           toastHandler.warn("마법이 불안정해요. 잠시 후 다시 시도해 주세요.", {
