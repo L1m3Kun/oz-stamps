@@ -15,7 +15,7 @@ const IdentifyForm = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="min-w-96 bg-white rounded-2xl p-8 shadow-lg z-20"
       >
-        <div className="space-y-6">
+        <div className="space-y-4">
           {FormConfigs.map((configs) => (
             <CustomInput key={configs.label} {...configs} />
           ))}
@@ -27,7 +27,7 @@ const IdentifyForm = () => {
             disabled={isLoading}
             className="w-full"
           >
-            {isLoading ? "확인 중..." : "✨ 마법구슬 확인하기 ✨"}
+            {isLoading ? "확 인 중..." : "✨ 마법구슬 확인하기 ✨"}
           </CustomButton>
 
           <CustomButton

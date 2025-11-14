@@ -6,6 +6,7 @@ import { GetTotalStampResponseType, User } from "@/types/_common/api";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/contexts/ToastContext";
 import { useUser } from "@/contexts/UserContext";
+import { useCallback, useMemo } from "react";
 
 export interface FormData {
   flag: string;
@@ -16,6 +17,7 @@ export interface FormData {
 export const useIdentifySubmit = () => {
   const navigate = useNavigate();
   const toastHandler = useToast();
+  const { handleUser } = useUser();
   const {
     register,
     handleSubmit,
@@ -24,9 +26,7 @@ export const useIdentifySubmit = () => {
   } = useForm<FormData>({
     defaultValues: { flag: "", name: "", phoneLast: "" },
   });
-
   const formData = watch();
-  const { handleUser } = useUser();
   const { isLoading, startFetch } = useFetch<GetTotalStampResponseType, User>({
     params: { ...formData },
     defaultData: { stamps: 0 },
@@ -69,11 +69,10 @@ export const useIdentifySubmit = () => {
     },
   ];
 
-  const onSubmit = async () => {
+  const onSubmit = useCallback(async () => {
     try {
       const data = await startFetch();
       handleUser({ ...formData, stamps: data.stamps });
-
       navigate("/result");
     } catch (e) {
       console.error("API Error:", e);
@@ -83,7 +82,7 @@ export const useIdentifySubmit = () => {
           toastHandler.error(
             "마법사를 찾을 수 없어요. 마법사 정보를 확인해주세요.",
             {
-              className: "bg-red-300 text-primary",
+              className: "bg-red-300 text-obsidian",
             }
           );
           break;
@@ -94,11 +93,11 @@ export const useIdentifySubmit = () => {
           break;
       }
     }
-  };
+  }, [formData]);
 
   return {
-    FormConfigs,
+    FormConfigs: useMemo(() => FormConfigs, [errors]),
     isLoading,
-    handleSubmit: handleSubmit(onSubmit),
+    handleSubmit: useCallback(handleSubmit(onSubmit), [onSubmit]),
   };
 };
