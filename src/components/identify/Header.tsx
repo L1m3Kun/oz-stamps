@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { memo } from "react";
-
+import { CustomImg } from "../_common";
+import MagicWand from "@/assets/imgs/noto_magic-wand.png";
 const Header = () => {
   return (
     <>
@@ -12,11 +13,20 @@ const Header = () => {
           className="text-center mb-8"
         >
           <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={{
+              rotate: [0, 10, -10, 0],
+              opacity: [1, 0.6, 1],
+              x: [0, -10, 10, 0],
+              y: [0, -10, 10, 0],
+            }}
+            transition={{ duration: 4, repeat: Infinity }}
             className="text-6xl mb-4"
           >
-            🔮
+            <CustomImg
+              src={MagicWand}
+              alt="magic wand"
+              className="w-12 h-auto m-auto"
+            />
           </motion.div>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">마법사 확인</h1>
           <p className="text-gray-600">

@@ -17,7 +17,8 @@ const Header = ({ name }: HeaderProps) => {
         마법구슬 현황 ✨
       </h1>
       <p className="text-gray-600">
-        {name && `${name}님의 `}마법구슬을 확인해보세요
+        <span className="text-primary-DEFAULT">{name && name}</span>
+        님의 마법구슬을 확인해보세요
       </p>
     </motion.div>
   );
