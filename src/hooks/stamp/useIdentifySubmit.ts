@@ -38,7 +38,14 @@ export const useIdentifySubmit = () => {
       type: "text",
       label: "flag",
       labelText: "기수",
-      register: register("flag", { required: "기수를 입력해주세요." }),
+      register: register("flag", {
+        required: "기수를 입력해주세요.",
+        pattern: {
+          value: /^[0-9]+$/,
+          message: "숫자만 입력가능합니다.",
+        },
+      }),
+
       placeholder: "예: 1, 2",
       error: errors.flag?.message,
       required: true,
@@ -96,7 +103,7 @@ export const useIdentifySubmit = () => {
   }, [formData]);
 
   return {
-    FormConfigs: useMemo(() => FormConfigs, [errors]),
+    FormConfigs,
     isLoading,
     handleSubmit: useCallback(handleSubmit(onSubmit), [onSubmit]),
   };
