@@ -6,7 +6,7 @@ import { GetTotalStampResponseType, User } from "@/types/_common/api";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/contexts/ToastContext";
 import { useUser } from "@/contexts/UserContext";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 
 export interface FormData {
   flag: string;
