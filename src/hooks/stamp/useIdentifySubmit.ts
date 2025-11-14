@@ -79,13 +79,15 @@ export const useIdentifySubmit = () => {
       console.error("API Error:", e);
       const customError = e as CustomErrorType;
       switch (customError.status) {
-        case 400:
-          toastHandler.error(
-            "마법에 실패했어요. 일치하는 수강생을 찾을 수 없어요."
-          );
+        case 421:
+          toastHandler.error("마법에 실패했어요. 정보를 다시 입력해주세요.", {
+            className: "bg-red-300 text-primary",
+          });
           break;
         default:
-          toastHandler.error("마법이 불안정해요. 잠시 뒤 다시 시도해 주세요.");
+          toastHandler.warn("마법이 불안정해요. 잠시 후 다시 시도해 주세요.", {
+            className: "bg-obsidian",
+          });
           break;
       }
     }

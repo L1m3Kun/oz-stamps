@@ -28,7 +28,10 @@ export const useFetch = <T, P>({
       setIsLoading(true);
       const response = await apiCall(params);
       const payload = response.data as CustomErrorType;
-
+      if (payload.status === 421) {
+        setError(payload);
+        throw payload;
+      }
       if ("status" in payload && "details" in payload) {
         throw payload;
       }
