@@ -26,7 +26,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     <ToastContext.Provider value={value}>
       {children}
       <ToastContainer
-        position="top-right"
+        position="bottom-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop
