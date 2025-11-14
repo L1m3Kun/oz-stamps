@@ -50,15 +50,15 @@ const MainCard = ({
             >
               🔮
             </motion.div>
+            <p className="text-xl opacity-90">마법구슬</p>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
               className="text-6xl font-bold mb-2"
             >
-              {displaystamps}
+              {displaystamps} <span className="text-xl opacity-90">개</span>
             </motion.div>
-            <p className="text-xl opacity-90">개의 마법구슬</p>
           </div>
 
           {/* 진척도 바 (다음 등급이 있을 때만) */}
@@ -67,7 +67,7 @@ const MainCard = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5 }}
-              className="bg-white/20 rounded-full p-1 mb-4"
+              className=" rounded-full p-1 mb-4"
             >
               <div className="bg-white/30 rounded-full px-4 py-2 mb-2">
                 <div className="flex justify-between text-sm">
@@ -82,21 +82,11 @@ const MainCard = ({
                     width: `${Math.min(nextTierInfo.progress, 100)}%`,
                   }}
                   transition={{ duration: 2, delay: 1.5 }}
-                  className="bg-white h-full rounded-full"
+                  className="bg-gradient-to-r from-primary-dark to-primary-light h-full rounded-full"
                 />
               </div>
             </motion.div>
           )}
-
-          {/* 업데이트 시간 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="text-center text-sm opacity-75"
-          >
-            {/* <p>최근 업데이트: {tier.updatedAt}</p> */}
-          </motion.div>
         </div>
       </motion.div>
     </>

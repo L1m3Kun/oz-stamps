@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function MagicParticles() {
   return (
@@ -17,12 +17,12 @@ export default function MagicParticles() {
             repeat: Infinity,
             delay: Math.random() * 2,
           }}
-          className="absolute w-1 h-1 bg-[#984BFF] rounded-full"
+          className="absolute w-1 h-1 bg-primary-dark rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             bottom: `${Math.random() * 20}%`,
-            filter: 'blur(0.5px)',
-            boxShadow: '0 0 6px #984BFF',
+            filter: "blur(0.5px)",
+            boxShadow: "0 0 6px primary-dark",
           }}
         />
       ))}

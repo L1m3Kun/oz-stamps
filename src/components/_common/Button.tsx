@@ -28,10 +28,10 @@ export const Button = ({
     "rounded-full font-medium transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center justify-center";
 
   const variantClasses = {
-    primary: "bg-[#984BFF] text-white hover:bg-[#8A42E6] hover:shadow-lg",
+    primary: "bg-primary-dark text-white hover:bg-primary-300 hover:shadow-lg",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     magic:
-      "bg-gradient-to-r from-[#984BFF] to-[#C478FF] text-white hover:from-[#8A42E6] hover:to-[#B366E6] shadow-lg hover:shadow-xl hover:shadow-[#984BFF]/25",
+      "bg-gradient-to-r from-primary-dark to-primary-light text-white hover:from-primary-300 hover:to-primary-200 shadow-lg hover:shadow-xl hover:shadow-primary-dark/25",
   };
 
   const sizeClasses = {

@@ -18,12 +18,12 @@ const BackGroundParticle = () => {
             repeat: Infinity,
             delay: Math.random() * 3,
           }}
-          className="absolute w-2 h-2 bg-[#984BFF] rounded-full"
+          className="absolute w-2 h-2 bg-primary-dark rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             bottom: `${Math.random() * 30}%`,
             filter: "blur(1px)",
-            boxShadow: "0 0 8px #984BFF",
+            boxShadow: "0 0 8px primary-dark",
           }}
         />
       ))}

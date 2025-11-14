@@ -29,7 +29,7 @@ export const Input = <T extends FieldValues>({
         type={type}
         placeholder={placeholder}
         className={twMerge(
-          "w-full px-4 py-3 border rounded-lg text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#984BFF] focus:border-transparent ",
+          "w-full px-4 py-3 border rounded-lg text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-dark focus:border-transparent ",
           error
             ? "border-red-500 bg-red-50"
             : "border-gray-300 hover:border-gray-400"
