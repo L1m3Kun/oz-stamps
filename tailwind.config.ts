@@ -18,7 +18,7 @@ export default {
           800: "#7A38FF",
           900: "#984BFF",
         },
-        obsidian: "#984BFF",
+        obsidian: "#2e3134",
         gray: {
           100: "#F5F5F5",
           200: "#E0E0E0",
